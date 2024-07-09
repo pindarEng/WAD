@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
     }
 
-    // Add event listeners to all quantity input fields
     const quantityInputs = document.querySelectorAll('.quantityInput');
     quantityInputs.forEach(function(input) {
         input.addEventListener('input', function() {
