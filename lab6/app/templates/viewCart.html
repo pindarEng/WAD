@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="{% static 'js/cartRefresh.js' %}" defer></script>
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Cart</h1>
+    <form method="post" action="{% url 'checkout' %}">
+        {% csrf_token %}
+        <ul id="cart-items">
+        {% for item in order.lineItems.all %}
+            <li id="item_{{ item.id }}">
+                <span class="productName">{{ item.product.name }}</span>
+                <span class="productPrice" data-price="{{ item.product.price }}">{{ item.product.price }}</span>
+                <label for="quantity_{{ item.id }}">Quantity:</label>
+                <input type="number" id="quantity_{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.qty }}" min="1" class="quantityInput">
+            </li>
+        {% empty %}
+            <li>Your cart is empty</li>
+        {% endfor %}
+        </ul>
+        <div>Total Price: <span id="totalPrice">0.00</span></div>
+        <button type="submit">Checkout</button>
+    </form>
+</body>
+</html>

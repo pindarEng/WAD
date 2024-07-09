@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css"/>
+    <script src="{% static 'js/home.js' %}" defer></script>
+    <title>See products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="header">
+    <img src="{% static 'images/companyLogo.jpg' %}" width="100px" alt="Company Logo"/>
+    <span class="header-text">COMPANY NAME</span>
+</div>
+
+<h2>Add product:</h2>
+<form id="addProductForm">
+    {% csrf_token %}
+    Name<input id="productName" name="name">
+    Type<select id="productType" name="type">
+        <option value="HW">Hardware</option>
+        <option value="SW">Software</option>
+    </select>
+    Description<textarea id="productDescription" name="description"></textarea>
+    Price<input id="productPrice" name="price">
+    <button id="addProductButton" type="submit">Add Product</button>
+</form>
+
+<h2>Delete product:</h2>
+<form id="deleteProductForm">
+    {% csrf_token %}
+    Id <select id="deleteProductId" name="id">
+        {% for product in products %}
+            <option value="{{ product.id }}">{{ product.id }}</option>
+        {% endfor %}
+    </select>
+    <button id="deleteProductButton" type="submit">Delete Product</button>
+</form>
+
+<h2>Modify product:</h2>
+<form id="modifyProductForm">
+    {% csrf_token %}
+    Id <select id="modifyProductId" name="id">
+        {% for product in products %}
+            <option value="{{ product.id }}">{{ product.id }}</option>
+        {% endfor %}
+    </select>
+    Name<input id="modifyProductName" name="name">
+    Price<input id="modifyProductPrice" name="price">
+    <button id="modifyProductButton" type="submit">Modify Product</button>
+</form>
+
+<h2>Product list:</h2>
+<div id="products">
+    <!-- Product list will be dynamically populated here -->
+</div>
+
+</body>
+</html>
