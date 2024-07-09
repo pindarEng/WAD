@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Cart</h1>
+    <ul>
+    {% for item in order.lineItems.all %}
+        <li>
+            <span>{{ item.product.name }}</span>
+            <span>{{ item.product.price }}</span>
+            <label for="quantity_{{ item.id }}">Quantity:</label>
+            <input type="number" id="quantity_{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.qty }}" min="1">
+        </li>
+    {% empty %}
+        <li>Your cart is empty</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'checkout' %}">Checkout</a>
+</body>
+</html>

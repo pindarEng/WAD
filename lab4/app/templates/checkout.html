@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- {% include 'header.html' %} -->
+    <h1>Checkout</h1>
+    <p>Items in your cart:</p>
+    <ul>
+        {% for item in order.lineItems.all %}
+            <li>{{ item.qty }} of {{ item.product.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Payment</a>
+
+    <!-- Other checkout information -->
+</body>
+</html>

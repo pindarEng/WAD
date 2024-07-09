@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+    {% for product in products %}
+        <li>
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="50" height="50">
+            {% else %}
+                <span>No Image</span>
+            {% endif %}
+            <span>{{ product.name }}</span>
+            <span>{{ product.price }}</span>
+            <a href="{% url 'addCart' product.id %}">Add to cart</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'viewCart' %}">View Cart</a>
+</html>
