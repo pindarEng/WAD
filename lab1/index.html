@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form Validation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header><img class="logo" src="images/logo.png"><h1>MONKEY BUSINESS INC.</h1></header>
+    <nav>
+      <a href="">Home</a>
+      <a href="">Register</a>
+      <a href="">Contact</a>
+    </nav>
+  
+  <form action="javascript:validateForm(this)">
+
+    <legend><h3>Registration form</h3></legend>
+
+    <label for="name">Name:</label>
+    <input type="text" value="" name="name" id="name" />
+    <br>
+
+    <label for="username">Username:</label>
+    <input type="text" value="" name="user" id="user" />
+    <br>
+
+    <label>Password:</label>
+    <input type="password" value="" name="pass" id="pass" />
+    <br>
+
+    <label>Repeat Password:</label>
+    <input type="password" value="" name="repass" id="repass" />
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" value="" name="email" id="email" />
+    <br>
+
+    <legend>Gender:</legend>
+    <input type="radio" value="radio1" name="gender" id="gmale" />
+    <label>Male</label>
+    <input type="radio" value="radio2" name="gender" id="gfemale" />
+    <label>Female</label>
+    <br>
+
+    <label>Tel:</label>
+    <input type="tel" value="" name="tel" id="tel" />
+    <br>
+
+    <label>Country</label>
+    <select name="country" id="country" >
+        <option>Romania</option>
+        <option>UK</option>
+        <option>USA</option>
+        <option>DE</option>
+    </select>
+    <br>
+
+
+    <label>Subscribe to mailing list:</label> 
+    <input type="checkbox" value="checkbox1" name="button" />
+    <br>
+
+    <input type="submit" value="Submit" />
+
+    <input type="reset"  value="Reset" />
+
+    <ul id="errors"></ul>
+
+</form>
+  
+  </div>
+</body>
+</html>
