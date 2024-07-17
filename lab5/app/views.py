@@ -5,8 +5,6 @@ from .models import Product
 import json
 # Create your views here.
 
-# Replace 'addProduct', 'deleteProduct', 'modifyProduct' views as per your requirement
-
 def home(request):
     return render(request,"home.html")
 
